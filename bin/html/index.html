@@ -38,7 +38,9 @@
                 } else if(o.type == "msg") {
                     write_msg("[" + o.time + "][" + o.name + "] " + o.msg);
                 } else if(o.type == "login_response") {
-                    write_msg("[" + o.result + "][" + o.msg+ "]");
+                    write_msg("[" + o.result + "][" + o.msg + "]");
+                } else if (o.type == "send_response") {
+                    write_msg("[" + o.result + "][" + o.msg + "]");
                 }
             }
 

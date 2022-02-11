@@ -9,7 +9,7 @@ servers:
       type: http
     - address: ["0.0.0.0:8072", "localhost:8071"]
       keepalive: 1
-      timeout: 60000
+      timeout: 600000
       name: flexy/2.1
       accept_worker: accept
       io_worker: io

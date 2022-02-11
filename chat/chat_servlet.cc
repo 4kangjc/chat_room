@@ -128,7 +128,7 @@ int32_t ChatWSServlet::handle(const http::HttpRequest::ptr& header, const http::
         }
         if (id.empty()) {
             rsp["result"] = "501";
-            rsp["msg"] = "msg is null";
+            rsp["msg"] = "not login";
             goto send;
         }
 
