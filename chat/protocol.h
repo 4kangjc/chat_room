@@ -6,7 +6,7 @@
 
 namespace chat {
 
-class ChatMessage {
+class ChatMessage : public std::map<std::string, std::string> {
 public:
     using ptr = std::shared_ptr<ChatMessage>;
     static ChatMessage::ptr Create(const std::string& v);
@@ -14,8 +14,7 @@ public:
     std::string get(const std::string& name);
     void set(const std::string& name, const std::string& val);
     std::string toString() const;
-private:
-    std::map<std::string, std::string> datas_;
+    operator std::string() const { return toString(); }
 };
 
 }

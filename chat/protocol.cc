@@ -12,7 +12,7 @@ ChatMessage::ptr ChatMessage::Create(const std::string& v) {
     ChatMessage::ptr rt = std::make_shared<ChatMessage>();
     auto names = node.getMemberNames();
     for (auto& name : names) {
-        rt->datas_[name] = node[name].asString();
+        (*rt)[name] = node[name].asString();
     }
     return rt;
 }
@@ -21,17 +21,17 @@ ChatMessage::ChatMessage() {
 }
 
 std::string ChatMessage::get(const std::string& name) {
-    auto it = datas_.find(name);
-    return it == datas_.end() ? "" : it->second;
+    auto it = find(name);
+    return it == end() ? "" : it->second;
 }
 
 void ChatMessage::set(const std::string& name, const std::string& val) {
-    datas_[name] = val;
+    (*this)[name] = val;
 }
 
 std::string ChatMessage::toString() const {
     Json::Value json;
-    for (auto& [name, value] : datas_) {
+    for (auto& [name, value] : *this) {
         json[name] = value;
     }
     Json::FastWriter writer;

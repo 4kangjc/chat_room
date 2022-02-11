@@ -18,20 +18,21 @@ set(LIB_SRC
     chat/chat_servlet.cc
 )
 
-set(LIBS flexy chat_room)
 
 option(BUILD_SHARED_LIBS "Build flexy as a shared lib" ON)
 option(BUILD_STATIC_LIBS "Build flext as a static lib" OFF)
 
 if (BUILD_STATIC_LIBS)
 add_library(chat_room STATIC ${LIB_SRC})
+target_link_libraries(chat_room flexy)
 elseif (BUILD_SHARED_LIBS)
 add_library(chat_room SHARED ${LIB_SRC})
+target_link_libraries(chat_room flexy)
 endif(BUILD_STATIC_LIBS)
 
 redefine_file_macro(chat_room)
 
-flexy_add_executable(chat "chat/main.cc" ${LIBS})
+flexy_add_executable(chat "chat/main.cc" chat_room)
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
