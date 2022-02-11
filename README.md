@@ -7,5 +7,5 @@ cd chat_room
 git submodule update --init --recursive
 make
 make -j
-sudo /bin/chat -s
+sudo bin/chat -s
 ```
