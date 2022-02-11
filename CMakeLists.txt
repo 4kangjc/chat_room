@@ -31,7 +31,7 @@ endif(BUILD_STATIC_LIBS)
 
 redefine_file_macro(chat_room)
 
-flexy_add_executable(main "chat/main.cc" ${LIBS})
+flexy_add_executable(chat_room "chat/main.cc" ${LIBS})
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
