@@ -5,7 +5,7 @@ add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/flexy)
 
 include(flexy/cmake/utils.cmake)
 
-set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O0 -ggdb -std=c++17 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined -Wno-deprecated-declarations")
+set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O3 -ggdb -std=c++17 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined -Wno-deprecated-declarations")
 
 include_directories(./)
 include_directories(flexy)

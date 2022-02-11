@@ -40,7 +40,8 @@
                 } else if(o.type == "login_response") {
                     write_msg("[" + o.result + "][" + o.msg + "]");
                 } else if (o.type == "send_response") {
-                    write_msg("[" + o.result + "][" + o.msg + "]");
+                    if (o.result != 200)
+                        write_msg("[" + o.result + "][" + o.msg + "]");
                 }
             }
 
